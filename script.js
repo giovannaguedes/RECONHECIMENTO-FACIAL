@@ -92,11 +92,6 @@ startButton.addEventListener('click', () => {
             // Exibe o crachá só depois do reconhecimento
          document.getElementById('result').classList.remove('hidden');
 
-            
-      // Redireciona para siem.html após um pequeno atraso
-            setTimeout(() => {
-                window.location.href = '/siem';
-            }, 80000);
         })
         .catch(err => {
             console.error(err);
