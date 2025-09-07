@@ -76,17 +76,5 @@ def start_recognition():
     else:
         return jsonify({'error': 'Nenhum rosto reconhecido'})
 
-@app.route('/siem')
-def siem_index():
-    # Caminho correto para a nova pasta SIEM_mvp
-    siem_path = os.path.join(os.path.dirname(__file__), '../SIEM_mvp')
-    return send_from_directory(siem_path, 'siem.html')
-
-# Serve arquivos dentro de SIEM_mvp (como imagens)
-@app.route('/siem/<path:filename>')
-def siem_static(filename):
-    siem_path = os.path.join(os.path.dirname(__file__), '../SIEM_mvp')
-    return send_from_directory(siem_path, filename)
-
 if __name__ == '__main__':
     app.run(debug=True)
