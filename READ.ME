@@ -1,0 +1,72 @@
+Rodar:
+1º: abra o terminal e verifique se está no diretório 
+cd "face_recognition - cópia"
+
+2º:ative o conda 
+"conda activate face_env"
+
+3º:exporte o arquivo que guardará quem entrou e horário 
+"export FLASK_APP=attendance_app.py"
+
+4º:rode o Flask para acessar no localhost
+"flask run"
+
+5º:acesse por meio do browser
+"http://127.0.0.1:5000"
+
+6º: aceite a permisão de câmera
+
+SnoutSec - Reconhecimento Facial  
+
+Este projeto implementa uma interface web para 
+reconhecimento facial em tempo real, utilizando 
+câmera do dispositivo e integração com um sistema 
+de backend (Flask).  
+
+🚀 Funcionalidades  
+
+- Captura de vídeo via webcam.  
+- Análise da biometria facial em tempo real.  
+- Exibição de informações do usuário autenticado (nome, ID, horário de login).  
+- Interface responsiva e estilizada com Tailwind CSS.  
+- Fluxo de autenticação simples em três passos:
+  1. Posicionamento do usuário frente à câmera.  
+  2. Reconhecimento facial realizado pelo sistema.  
+  3. Emissão de credencial digital instantânea.  
+
+🛠️ Tecnologias Utilizadas  
+
+- Frontend:  
+  - HTML5  
+  - TailwindCSS  
+  - JavaScript (interação com a câmera e overlay)  
+
+- Backend (exemplo de stack):  
+  - Flask (Python) para servir os templates (`url_for`)  
+  - Bibliotecas de visão computacional (ex.: OpenCV, dlib, 
+  face-recognition – a ser configurado)  
+
+📸 Demonstração
+
+Fluxo de uso:
+
+O usuário posiciona o rosto em frente à câmera.
+
+O sistema detecta e reconhece a biometria facial.
+
+As credenciais são exibidas na tela.
+
+O login fica aguardado em .csv em um planilha excel
+
+📌 Observações
+
+Este projeto é apenas um protótipo acadêmico/educacional.
+
+Para uso em produção, recomenda-se reforçar a segurança e 
+adequar às normas de LGPD e GDPR.
+
+A integração com banco de dados para persistência de credenciais 
+ainda não está implementada.
+
+👤 Autor(a)
+Desenvolvido por Giovanna Guedes 🚀

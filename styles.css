@@ -1,0 +1,201 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    overflow-y: auto;
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+}
+
+.background-pattern {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0.05;
+    z-index: -1;
+    background-image: repeating-linear-gradient(
+        45deg,
+        #fff,
+        #fff 20px,
+        transparent 20px,
+        transparent 40px
+    );
+}
+
+.snoutsec-text {
+    position: fixed;
+    color: rgba(255, 255, 255, 0.08);
+    font-size: 8rem;
+    font-weight: 900;
+    transform: rotate(-15deg);
+    pointer-events: none;
+    z-index: -1;
+}
+
+.hidden { display: none; }
+
+.video-container {
+    width: 300px;  /* Largura fixa para manter proporção oval */
+    height: 400px; /* Altura maior para formato oval */
+    position: relative;
+    margin: 0 auto; /* Centraliza horizontalmente */
+}
+
+.video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Garante que o vídeo preencha o container */
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%; /* Formato oval avançado */
+    border: 4px solid #4fd1c5;
+    box-shadow: 0 0 30px rgba(79, 209, 197, 0.5);
+    overflow: hidden;
+    position: relative;
+    transition: all 0.3s ease;
+    display: block; /* Garante que respeite as dimensões */
+}
+
+.video:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 40px rgba(79, 209, 197, 0.8);
+}
+
+/* Para o overlay/canvas se necessário */
+#overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit; /* Herda o border-radius do container */
+}
+button:hover {
+    background-color: #38b2ac; /* Cor do botão ao passar o mouse */
+    box-shadow: 0 0 20px rgba(79, 209, 197, 0.7); /* Adiciona sombra para efeito extra */
+
+}
+
+
+
+.badge {
+    /*background: linear-gradient(145deg, #2a2a41, #1e1e32);*/
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transform-style: preserve-3d;
+    transition: all 0.5s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.badge::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        to bottom right,
+        rgba(79, 209, 197, 0.1),
+        rgba(79, 209, 197, 0.01)
+    );
+    transform: rotate(45deg);
+    z-index: 0;
+}
+
+.badge:hover {
+    transform: translateY(-5px) rotateX(5deg) rotateY(5deg);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+}
+
+.badge-photo {
+    border: 3px solid #4fd1c5;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.badge:hover .badge-photo {
+    border-color: #fff;
+    box-shadow: 0 0 20px rgba(79, 209, 197, 0.7);
+}
+
+
+.floating {
+    animation: floating 6s ease-in-out infinite;
+}
+
+@keyframes floating {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.welcome-text {
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-image: linear-gradient(90deg, #4fd1c5, #38b2ac);
+}
+
+/* Estilo geral do crachá */
+#result {
+    position: relative;
+    margin-top: 50px; /* desce 50px abaixo do elemento acima */
+    margin-left: 20px;
+    aspect-ratio: 3 / 4;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 40px;
+    border-radius: 24px;
+
+    /* Gradiente de fundo */
+    background: linear-gradient(145deg, #1e40af, #4fd1c5);
+    
+    /* Sombra elegante */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), 
+                0 0 15px rgba(79, 209, 197, 0.3);
+    
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+#result:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.6), 0 0 20px rgba(79,209,197,0.5);
+}
+
+
+/* Foto redonda no crachá */
+#result .badge-photo {
+    border: 3px solid #4fd1c5;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    box-shadow: 0 0 15px rgba(235, 125, 62, 0.5);
+}
+
+/* Nome com destaque */
+#result h2 {
+    margin-top: 0.5rem;
+    margin-bottom: 0.75rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+/* Texto menor para ID e horário */
+#result p {
+    font-size: 0.9rem;
+    margin: 2px 0;
+    color: #f1f5f9; /* cinza claro */
+}
+
+#wordOfTheDay {
+    font-size: 1rem;
+    margin-top: 4px;
+    font-style: italic;
+}
+

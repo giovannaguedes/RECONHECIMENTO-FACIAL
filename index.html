@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SnoutSec -  Reconhecimento Facial</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center p-4">
+   
+    <!-- Background pattern with SnoutSec text -->
+    <div class="background-pattern"></div>
+    <div class="snoutsec-text" style="top: 10%; left: 5%;">SNOUTSEC</div>
+    <div class="snoutsec-text" style="top: 30%; left: 60%;">SNOUTSEC</div>
+    <div class="snoutsec-text" style="top: 70%; left: 20%;">SNOUTSEC</div>
+
+      <!-- Container principal -->
+    <div class="container mx-auto max-w-4xl w-full">
+        <h1 class="text-5xl font-bold text-white text-center mb-4">Reconhecimento Facial</h1>
+         <p class="text-xl text-gray-300"> </p>
+
+         <div class="flex flex-col md:flex-row items-start justify-center gap-10 p-4">
+            
+            <!-- Container para o vídeo -->
+            <div class="flex flex-col items-center">
+
+            <div class="video-container">
+                <video id="webcam" autoplay playsinline class="video"></video>
+                <canvas id="overlay" class="hidden"></canvas>
+            </div>
+            <button id="startRecognition" class="mt-4 bg-teal-500 hover:bg-teal-600 text-white px-6 py-2 rounded-lg transition">Iniciar Reconhecimento</button>
+        </div>
+
+             <!-- Crachá -->
+        <div id="result" class="hidden badge rounded-2xl p-6 text-center w-64">
+            <!-- Foto do usuário -->
+            <div class="flex justify-center mb-4">
+                <img id="userPhoto" src="" alt="Foto do usuário" class="badge-photo w-32 h-32 object-cover rounded-full">
+            </div>
+        
+            <!-- Nome -->
+            <h2 class="text-xl font-semibold text-white mb-2 welcome-text">
+                <span id="userName">Nome Usuário</span>
+            </h2>
+        
+            <!-- Informações -->
+            <p class="text-gray-300 text-sm">ID: <span id="userId">—</span></p>
+            <p class="text-gray-300 text-sm">Data: <span id="loginDate">—</span></p>
+            <p class="text-gray-300 text-sm">Horário: <span id="loginTime">—</span></p>
+         
+            <!-- Palavra do Dia -->
+            <div class="info-divider"></div>
+            <p class="text-orange-400 font-semibold text-lg">Palavra do Dia:</p>
+            <p id="wordOfTheDay" class="text-white italic">—</p>
+
+        </div>
+    </div>
+
+     <!-- Como funciona: agora dentro do container -->
+    <div class="bg-gray-800 bg-opacity-50 rounded-xl p-6 max-w-3xl mx-auto">
+      <h3 class="text-2xl font-semibold text-white mb-3 text-center w-full">Como funciona?</h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+         <div class="bg-gray-700 bg-opacity-50 p-4 rounded-lg">
+              <div class="text-4xl text-center text-cyan-400 mb-2">1</div>
+              <h4 class="font-medium text-white mb-2">Posicione-se</h4>
+              <p class="text-gray-300 text-sm">Fique em frente à câmera com o rosto dentro da área oval.</p>
+          </div>
+          <div class="bg-gray-700 bg-opacity-50 p-4 rounded-lg">
+              <div class="text-4xl text-center text-cyan-400 mb-2">2</div>
+              <h4 class="font-medium text-white mb-2">Reconhecimento</h4>
+              <p class="text-gray-300 text-sm">Nosso sistema captura e analisa sua biometria facial.</p>
+          </div>
+          <div class="bg-gray-700 bg-opacity-50 p-4 rounded-lg">
+              <div class="text-4xl text-center text-cyan-400 mb-2">3</div>
+              <h4 class="font-medium text-white mb-2">Credencial</h4>
+              <p class="text-gray-300 text-sm">Receba seu crachá digital personalizado instantaneamente!</p>
+          </div>
+      </div>
+    </div>
+
+</div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
+
+
