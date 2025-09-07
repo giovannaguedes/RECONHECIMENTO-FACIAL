@@ -1,0 +1,97 @@
+FACIAL-RECOGNITION
+
+◽️ Guide: Facial Recognition with Flask + face_recognition
+
+This software combines Flask (web backend), OpenCV, and the face_recognition library to build a login/identification app based on photos stored in a dataset.
+
+1. Frontend (index.html)
+
+A Tailwind CSS responsive page. It contains:
+
+Webcam API to capture the face.
+
+Canvas overlay to mark the capture area.
+
+"Start Recognition" button that sends the image to the server.
+
+Digital badge displaying:
+
+User photo (from dataset)
+
+Recognized name
+
+Login date and time
+
+Word of the day
+
+2. Backend (app.py)
+Loading the Dataset
+
+Reads each file in the dataset/ folder.
+
+Extracts the facial embedding with face_recognition.
+
+Stores the filename as the user’s name and the facial vector (encoding).
+
+3. Facial Recognition (route /start_recognition)
+
+Receives a photo from the user (request.files['image']).
+
+Converts it into a NumPy array (cv2.imdecode).
+
+Extracts face_encodings from the uploaded image.
+
+Compares against the dataset using:
+
+compare_faces → Boolean (match or not).
+
+face_distance → Distance (smaller = more similar).
+
+If distance < 0.6, the user is recognized.
+
+Returns JSON to the frontend with:
+
+Name
+
+Date
+
+Time
+
+Original dataset photo
+
+4. Attendance Logging
+if not any(record['Name'] == name for record in attendance):
+    attendance.append({'Name': name, 'Time': time_now})
+    pd.DataFrame(attendance).to_excel('attendance.xlsx', index=False)
+
+
+Prevents duplicate entries for the same user.
+
+Saves logs to an Excel file (attendance.xlsx).
+
+5. Full Workflow
+
+User opens http://localhost:5000/
+.
+
+The system requests webcam access.
+
+A photo is captured and sent via POST → /start_recognition.
+
+Flask processes it and compares against the dataset.
+
+If recognized:
+
+Displays name, photo, and digital badge.
+
+Saves attendance log to Excel.
+
+👉 What You Learned
+
+How to load a facial dataset in Python.
+
+How to use face_recognition to compare embeddings.
+
+How to integrate Flask + HTML + JS for real-time recognition.
+
+How to save attendance logs in Excel.
